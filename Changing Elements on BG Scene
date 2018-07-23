@@ -1,0 +1,19 @@
+**Note: The Dummy swatch will most likely need to go up the scene tree in order to find the object that contains the control swatch.
+
+
+
+
+sub onExecPerField()
+
+	dim dummySwatch as container
+	dummySwatch = this.ParentContainer.findSiblingSubContainer("LOCATION_OF_SWATCH_IN_OBJECT$current$DummySwatch")
+	
+	if this.texture <> dummySwatch.texture then
+	
+		this.texture = dummySwatch.texture
+	
+	end if
+
+end sub
+
+
