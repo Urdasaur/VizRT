@@ -1,0 +1,28 @@
+dim  nameArray, hiliteArray as array[container]
+dim dummyThing as container
+
+sub onInit()
+
+	
+	nameArray.clear()
+
+	
+	for i = 1 to 12
+	
+			nameArray.push(this.findSiblingSubContainer("ContainerName" & i & "$SubContainer"))
+	next
+end sub
+	
+sub onExecPerField()	
+
+
+	for i = 1 to 12
+		if dummyThing.active == false then
+			nameArray[i - 1].position.x = 0.0
+		else
+			namerray[i - 1].position.x = 1.0
+		end if
+	next
+
+end sub
+

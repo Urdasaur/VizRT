@@ -1,0 +1,26 @@
+dim text as container
+
+sub onInit()
+	text = this.findSubContainer("Line1")
+end sub
+
+sub onExecPerField()
+
+	'Set the minimum scaling value here
+	dim minimum = 1.5
+	
+	'Avoids warping of text after squeeze to fit
+	if text.scaling.x > minimum then	
+		text.scaling.y = text.getFunctionPluginInstance("Maxsize").getParameterDouble("DEFAULT_SCALE_Y")		
+	end if
+	
+	if text.scaling.y < minimum then	
+		text.scaling.y = minimum
+		text.getFunctionPluginInstance("Maxsize").setParameterInt("SCALEY", 0)	
+	
+	elseif text.scaling.y > minimum then	
+		text.getFunctionPluginInstance("Maxsize").setParameterInt("SCALEY", 1)				
+	end if
+end sub
+
+
