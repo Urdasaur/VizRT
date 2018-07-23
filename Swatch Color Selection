@@ -1,0 +1,47 @@
+dim swatch1, swatch2, swatch3 as container
+dim selector as pluginInstance
+dim layout as integer
+
+sub onInIt()
+	selector = this.getFunctionPluginInstance("ControlNum")
+	swatch1 = this.findSiblingSubContainer("Left$Images$Swatch")
+	swatch2 = this.findSiblingSubContainer("Right$SingleLogo$Swatch")
+	swatch3 = this.findSiblingSubContainer("Left$Images$HS_Swatch")
+
+
+
+
+end sub
+
+sub onExecPerField()
+	layout = cint(selector.getParameterString("input"))
+	
+		if layout == 0 then
+		swatch1.texture.MapPosition.x = 1522.0
+		swatch1.texture.MapPosition.y = -2000.0
+		swatch2.texture.MapPosition.x = 1522.0
+		swatch2.texture.MapPosition.y = -2000.0
+		swatch3.texture.MapPosition.x = 1522.0
+		swatch3.texture.MapPosition.y = -2000.0
+
+        
+        elseif layout == 1 then
+		swatch1.texture.MapPosition.x = 1522.0
+		swatch1.texture.MapPosition.y = -1000.0
+		swatch2.texture.MapPosition.x = 1522.0
+		swatch2.texture.MapPosition.y = -1000.0
+		swatch3.texture.MapPosition.x = 1522.0
+		swatch3.texture.MapPosition.y = -1000.0
+		
+		elseif layout == 2 then
+		swatch1.texture.MapPosition.x = 0
+		swatch1.texture.MapPosition.y = -1000.0
+		swatch2.texture.MapPosition.x = 0
+		swatch2.texture.MapPosition.y = -1000.0
+		swatch3.texture.MapPosition.x = 0
+		swatch3.texture.MapPosition.y = -1000.0
+			
+	end if
+	
+			
+end sub
